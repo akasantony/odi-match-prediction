@@ -1,0 +1,7 @@
+__CW2007__ = '/home/akas/code/cricket-commentary-analysis/dataset/2007CWC/'
+__CW2011__ = '/home/akas/code/cricket-commentary-analysis/dataset/2011CWC/'
+__CW2003__ = '/home/akas/code/cricket-commentary-analysis/dataset/2003CWC/'
+__CW2015__ = '/home/akas/code/cricket-commentary-analysis/dataset/2015CWC/'
+__SCORECARD__ = '/home/akas/code/cricket-commentary-analysis/dataset/scorecard/'
+__VECTORS__ = '/home/akas/code/cricket-commentary-analysis/code/assets/vectors/'
+__MODELS__ = '/home/akas/code/cricket-commentary-analysis/code/assets/models/'
