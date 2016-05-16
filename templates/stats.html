@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Cricket Analytics | Update</title>
+		<link href="css/update.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/jquery-ui.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		<!-- js -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/stats.js"></script>
+		<script src="js/canvasjs.min.js"></script>
+		<!-- //js -->
+		<!-- for-mobile-apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="CRICKET Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+				function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- //for-mobile-apps -->
+		<!-- start-smoth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!-- start-smoth-scrolling -->
+</head>
+
+<body>
+<!-- banner -->
+	<div id="home" class="banner">
+	<div class="container">
+		<div class="navi">
+				<div class="main-in">
+					<section>
+						<button id="showLeft" class="navig"></button>
+					</section>
+				</div>
+				<!--- Navigation from Right To Left --->
+				<link rel="stylesheet" type="text/css" href="css/component.css" />
+					<script src="js/modernizr.custom.js"></script>
+					<div class="cbp-spmenu-push">
+						<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+							<h3>Menu</h3>
+							<a href="/home" class="scroll">Home</a>
+							<a href="/predict" class="scroll">Predict</a>
+							<a href="/analyse" class="scroll">Profile</a>
+							<a href="/about" class="scroll">About Us</a>
+						</nav>
+				</div>
+				<script src="js/classie.js"></script>
+					<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+			}
+		</script>
+				<!--- Navigation from Right To Left --->
+				<div class="clearfix"> </div>		</div>
+                <div class="banner-info">
+                        <label><h4 style="color:#F8F8FF;width:200px;">Enter Player Statistics:</h4></label></br>
+						<label><h4 style="color:#F8F8FF;width:200px;">Batting Statistics:</h4></label>
+						<input style="margin-left: 41%;" type="text" id="inngbatted" placeholder="Innings Played" required>
+						<input style="margin-left: 41%;" type="text" id="notouts" placeholder="Not Outs" required>
+						<input style="margin-left: 41%;" type="text" id="runsscored" placeholder="Runs Scored" required>
+						<input style="margin-left: 41%;" type="text" id="ballsfaced" placeholder="Balls Faced" required>
+						<input style="margin-left: 41%;" type="text" id="fours" placeholder="Fours" required>
+						<input style="margin-left: 41%;" type="text" id="sixes" placeholder="Sixes" required>
+						<input style="margin-left: 41%;" type="text" id="hundreds" placeholder="Hundred's" required>
+						<input style="margin-left: 41%;" type="text" id="fifties" placeholder="Fifty's" required>
+						<input style="margin-left: 41%;" type="text" id="highscore" placeholder="Highest Score" required>
+						<label><h4 style="color:#F8F8FF;width:200px;">Bowling Statistics:</h4></label>
+						<input style="margin-left: 41%;" type="text" id="inngbowled" placeholder="Innings Played" required>
+						<input style="margin-left: 41%;" type="text" id="ballsbowled" placeholder="Balls Bowled" required>
+						<input style="margin-left: 41%;" type="text" id="runsconceded" placeholder="Runs Conceded" required>
+						<input style="margin-left: 41%;" type="text" id="wickets" placeholder="Wickets" required>
+						<input style="margin-left: 41%;" type="text" id="maidens" placeholder="Maidens" required>
+						<input style="margin-left: 41%;" type="text" id="fivewickets" placeholder="Five or more wickets" required>
+                        <a href="#/" style="width:200px;margin-top:20px" class="btn btn-large btn-white" id="statsbtn">ADD PLAYER STATS</a>
+					</div>
+
+	</div>
+	</div>
+<!-- footer -->
+	<div class="footer">
+	<div class="container">
+		<div class="footer-icons">
+			<ul>
+				<li><b>ABHILASH</b></li>
+				<li><b>AKAS</b></li>
+				<li><b>NOORANI</b></li>
+				<li><b>NIVEDITA</b></li>
+			</ul>
+		</div>
+		<p>Design by our team</p>
+	</div>
+	</div>
+<!-- //footer -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										/*
+										var defaults = {
+								  			containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear'
+								 		};
+										*/
+
+										$().UItoTop({ easingType: 'easeOutQuart' });
+
+									});
+	</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

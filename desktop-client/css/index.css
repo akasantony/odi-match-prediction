@@ -1,0 +1,16 @@
+body {margin: 0; height: 100%; overflow: hidden}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url("../assets/img/banner.png") 50% 50% no-repeat fixed;
+    background-size:cover;
+    width:100%;
+    min-height:900px;
+}
+h1, h2, p {
+    color: white;
+}
+
+#title {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

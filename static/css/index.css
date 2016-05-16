@@ -71,29 +71,7 @@ button.navig {
 	display:block;
 	margin: .6em 0 3em;
 	}
-/*.start{
-	text-align:center;
-	}*/
-/*.start a{
-	font-size:13px;
-	color:#fff;
-	padding: 20px 50px;
-	border:1px solid #494D1A;
-	font-family: 'Montserrat', sans-serif;
-	transition:.5s all;
-	-webkit-transition:.5s all;
-	-moz-transition:.5s all;
-	-ms-transition:.5s all;
-	-o-transition:.5s all;
-	background:#444;
-	}
-.start a:hover{
-	text-decoration:none;
-	color:#494D1A;
-	border:1px solid #fff;
-	}*/
-/*-- //banner --*/
-/*-- banner-bottom --*/
+
 .banner-bottom{
 	padding:5em 0;
 	background:#70790C;
@@ -202,37 +180,6 @@ p.para1 span{
 .begin-left a:hover{
 	text-decoration:none;
 	color:#CEDC28;
-	}
-/*-- //banner-bottom --*/
-/*-- video --*/
-.video{
-	position:relative;
-	}
-.video h4{
-	color:#fff;
-	font-size:23px;
-	margin: 0;
-	position: absolute;
-	top: 42%;
-	left: 43%;
-	font-family: 'Montserrat', sans-serif;
-	}
-.video a span{
-	background:url(../assets/images/5.png) no-repeat 0px 0px;
-	display:block;
-	height:77px;
-	width:76px;
-	position:absolute;
-	top: 55%;
-	left: 46.3%;
-	}
-.video img{
-	width:100%;
-	}
-/*-- //video --*/
-/*-- portfolio --*/
-#portfolio{
-	padding:6em 0;
 	}
 p.paragraph{
 	color: #adadad;
@@ -2118,4 +2065,9 @@ a.btn,.btn {
 	transition: all 0.2s ease;
 	box-sizing: border-box;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.01);
+}
+
+.cards {
+	margin-left: 100px !important;
+	margin-right: 50px !important;
 }

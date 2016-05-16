@@ -2104,3 +2104,12 @@ a.btn,.btn {
 	height: 110px !important;
     width: 140px;
 }
+#canvas1 {
+	margin-left: 10px;
+    margin-right: 10px;
+}
+
+#canvas2 {
+	margin-left: 150px;
+	margin-right: 12px;
+}

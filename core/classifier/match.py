@@ -1,8 +1,6 @@
 import csv
 from config import paths
 import numpy as np
-from sklearn.preprocessing import Imputer
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn import svm
 from core.config import paths
 from sklearn.externals import joblib
@@ -37,11 +35,9 @@ class Classify(object):
                     player_order[player_order.index(int(row["player_id"]))] = [float(row["NumOfInningsBatted"]), float(row["NotOutInnings"]), float(row["Bat_AVG"]),
                     float(row["Bat_SR"]), float(row["MRA"]), float(row["BRPI"]), float(row["HS"]), float(row["NumOfIngsBowled"]), float(row["BW_AVG"]),
                     float(row["BW_SR"]), float(row["BW_ECN"]), float(row["MDO"]), float(row["HW"])]
-        print(player_order)
         for i in player_order:
             if i != 'NaN':
                 vec.append(self.pca.transform([i])[0][0])
-                print(vec)
             else:
                 vec.append(np.nan)
         return vec

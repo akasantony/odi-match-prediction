@@ -2,6 +2,7 @@ from sklearn.cluster import KMeans as km
 import csv
 from config import paths
 import pprint
+import json
 
 __authors__ = "Akas Antony"
 __email__ = "antony.akas@gmail.com"
@@ -31,21 +32,22 @@ def extract_vec(csv_file):
     return player_id, vect
 
 if __name__ == '__main__':
+    json_dump = open(paths.__KCLUSTERLABELS__, 'w')
     pp = pprint.PrettyPrinter(indent=4)
-    cl = KMeans(3)
+    cl = KMeans(9)
     playerid, vec = extract_vec(paths.__VECTORS__+'player.csv')
     labels = cl.fit(vec)
     dic = {}
     for index, label in enumerate(labels):
-        dic.setdefault(label, []).append(playerid[index])
-
-    for key in dic.keys():
-        temp_vec = []
-        for id in dic[key]:
-            temp_vec.append(vec[playerid.index(id)])
-        labels = cl.fit(temp_vec)
-        a = {}
-        for index, label in enumerate(labels):
-            a.setdefault(label, []).append(dic[key][index])
-        dic[key] = a
-    pp.pprint(dic)
+        dic.setdefault(str(label), []).append(playerid[index])
+    # for key in dic.keys():
+    #     temp_vec = []
+    #     for id in dic[key]:
+    #         temp_vec.append(vec[playerid.index(id)])
+    #     labels = cl.fit(temp_vec)
+    #     a = {}
+    #     for index, label in enumerate(labels):
+    #         a.setdefault(str(label), []).append(dic[key][index])
+    #     dic[key] = a
+    pprint.pprint((dic))
+    json.dump(dic, json_dump)

@@ -56,7 +56,7 @@
 							<h3>Menu</h3>
 							<a href="/home" class="scroll">Home</a>
 							<a href="/predict" class="scroll">Predict</a>
-							<a href="/analyse" class="scroll">Analyse</a>
+							<a href="/analyse" class="scroll">Profile</a>
 							<a href="/about" class="scroll">About Us</a>
 						</nav>
 				</div>
@@ -86,7 +86,7 @@
 			  <label><h4 style="color:#F8F8FF;margin-left:10px;width:200px;">Select Teams:</h4></label>
 			  <select class="form-control" id="country1" style="width:200px; margin-left: 41%;">
 					{% for team in teams%}
-			    <option value="{{team[0]}}"><span class="flag-icon flag-icon-gr"></span>{{team[1]}}</option>
+			    <option value="{{team[0]}}">{{team[1]}}</option>
 					{% endfor %}
 			  </select>
 				<h4 style="color:#F8F8FF;width:200px;margin-left: 41%;"> <b>VS</b></h4>
