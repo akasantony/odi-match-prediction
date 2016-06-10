@@ -62,9 +62,3 @@ $ python3 app.py
 ```
 ##### Open browser and visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
-Contributors:
-------------
-##### 1. Gududuru Abhilasha (abhilashagududuru@gmail.com) 
-##### 2. Akas Antony (antony.akas@gmail.com)
-##### 3. Norani Shaik F (nooranishaik57@gmail.com)
-##### 4. Niveditha K (niveditha.k.naidu@gmail.com)
