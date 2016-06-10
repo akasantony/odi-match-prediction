@@ -37,7 +37,6 @@ try:
        else:
            vec.append(' ')
            
-       #print(vec)
        playerVec.append(vec)
 
 except:
@@ -49,10 +48,3 @@ player_role_dict=dict(playerVec)
 for key in player_dict:
     if key in player_role_dict:
         player_role_dict[player_dict[key]] = player_role_dict.pop(key)
-      
-        
-        
-#print(len(player_role_dict))
-#print(player_role_dict)
-
-

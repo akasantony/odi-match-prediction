@@ -24,8 +24,5 @@ try:
 
 except:
     print("Error: Unable to Fetch Data")
-
+print(playerVec[21])
 player_dict=dict(playerVec)
-#print(len(player_dict))
-#print([value for key, value in player_dict.items() if key.startswith("V") and key.endswith("Sehwag")])
-

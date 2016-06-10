@@ -14,6 +14,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/splash.html`)
+  // mainWindow.setMenu(null);
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools()

@@ -7,17 +7,15 @@ function displayData(countryValues, country1Id, country2Id, data){
   $(".center_div").append($("<label><h4 style='color:#F8F8FF;margin-left:10px;width:200px;'>Select Players:</h4></label>"));
   var index = 0
   var country = data.data;
-  console.log(country);
   $(".center_div").append($("<li>"));
   $.each(country, function(x, player_details){
     $("<label><h5 style='color:#F8F8FF;margin-left:10px;width:200px;'><b>"+countryValues[x]+"</b></h5></label>").appendTo(".center_div");
     $("<div style='margin-left:30%;margin-right:30%' class='row playerlist"+x+"'>").appendTo(".center_div");
-    $("<div style='width:100%' class='col-lg-6 "+countryValues[x].replace(' ', '')+"'>").appendTo(".playerlist"+x);
-    $("<ul  class='list-group"+x+"'>").appendTo("."+countryValues[x].replace(' ', ''));
+    $("<div style='width:100%' class='col-lg-6 "+countryValues[x].replace(' ','')+"'>").appendTo(".playerlist"+x);
+    $("<ul  class='list-group"+x+"'>").appendTo("."+countryValues[x].replace(' ',''));
     console.log(x);
     $.each(player_details, function(y, player){
-        console.log(player);
-      $('<a />', {text: player[1], href: '#/', class: "list-group-item player-order"+x, id: countryValues[x].replace(' ', '')+'_'+player[0]}).appendTo('.list-group'+x)
+      $('<a />', {text: player[1] + " - "+player[2], href: '#/', class: "list-group-item player-order"+x, id: countryValues[x].replace(' ','')+'_'+player[0]}).appendTo('.list-group'+x)
     });
   });
   $(".center_div").append($("</li>"));
@@ -33,6 +31,11 @@ var country2Id;
 var country1Value;
 var country2Value;
 var plaeyerData;
+var chasing;
+var setting;
+var pos= [];
+var neg = [];
+var label = ["Top Order", "Top Middle Order", "Lower Middle Order","Tail End", "Spin","Fast"];
 
 $(document).ready(function () {
   $('#player').click(function () {
@@ -43,7 +46,6 @@ $(document).ready(function () {
     $.get( "/getplayers", { country1: country1Value, country2: country2Value} )
     .done(function(data){
       playerData = data;
-      console.log(data);
       console.log(country2Value);
       displayData([country1Value, country2Value], country1Id, country2Id, playerData)
     });
@@ -67,8 +69,19 @@ $(document).ready(function () {
     var finalOrder = [firstInn, secondInn];
     console.log(finalOrder);
     $.post("/predict", JSON.stringify({"playerOrder": finalOrder}), function(data) {
-        var setting = data.setting;
-        var chasing = data.chasing;
+        setting = data.setting;
+        chasing = data.chasing;
+		strength = data.strength;
+		pos = [];
+		neg= [];
+		$.each(strength, function(x, s) {
+			if(s>0) {
+				pos.push(x);
+			}
+			else{
+				neg.push(x);
+			}
+		});
         $("#title").text("Match prediction results:");
         $(".center_div").empty();
         $(".center_div").append($("<p>Target Setting Win Percentage:</p><canvas id='canvas1' width='200' height='200'></canvas>\
@@ -121,6 +134,14 @@ $(document).ready(function () {
         context.fillStyle = "white";
         context.fillText(text, 55, 100);
         context.textAlign="center";
+  		$("#slot").append($("<p>Slots Contributing to Win:</p>"));
+		$.each(pos, function(x, p) {
+  			$("#slot").append($("<p>"+label[p]+"</p>"));
+		});
+ 		$("#slot").append($("<p>Slots Witholding Win:</p>"));
+		$.each(neg, function(x, p) {
+  			$("#slot").append($("<p>"+label[p]+"</p>"));
+		});
 
     });
     console.log(finalOrder);

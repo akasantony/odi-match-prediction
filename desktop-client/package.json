@@ -1,35 +1,35 @@
 {
-  "name": "electron-quick-start",
+  "name": "crick-it",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "An application to predict cricket match outcomes and analyse player performances.",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "type": "git"
   },
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial"
+    "cricket",
+    "data-analytics",
+    "prediction",
+    "clustering"
   ],
-  "author": "GitHub",
+  "author": "Akas Antony, Gududuru Abhilasha",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
+    "url": "https://akasantony.github.io"
   },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "homepage": "https://akasantony.github.io",
   "devDependencies": {
+    "electron-packager": "^7.0.1",
     "electron-prebuilt": "^1.0.1"
-},
-"build": {
-  "app-bundle-id": "your.id",
-  "app-category-type": "your.app.category.type",
-  "win": {
-    "iconUrl": "(windows-only) https link to icon"
+  },
+  "build": {
+    "app-bundle-id": "your.id",
+    "app-category-type": "your.app.category.type",
+    "win": {
+      "iconUrl": "(windows-only) https link to icon"
+    }
   }
-}
 }

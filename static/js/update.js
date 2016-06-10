@@ -9,7 +9,7 @@ $(document).ready(function () {
         $.post('/update', JSON.stringify({"name": player_name, "country": country,
             "playerrole": playerrole, "battingrole": battingrole, "bowlingrole": bowlingrole}), function(data){
                 if (data.data == '200') {
-                    window.location.href = "/stats";
+                    
                 }
             });
     });

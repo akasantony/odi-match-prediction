@@ -17,9 +17,9 @@ def getData(Player_id):
     runs_conceded = float(input("Enter Runs Conceded As Bowler:"))
     balls_bowled = float(input("Enter Numnber of balls bowled:"))
     wickets_taken = float(input("Enter Number of wickets taken:\n"))
-    
+
     vec.append(Player_id);vec.append(runs);vec.append(balls_faced);vec.append(NoOuts);vec.append(round((NoOuts/balls_faced),3));vec.append(runs/NoOuts);vec.append(runs_conceded);vec.append(balls_bowled);vec.append(wickets_taken);vec.append(round((runs/wickets_taken),3));vec.append(round((wickets_taken/balls_bowled),3));
     return vec
-    
+
 data = getData(1226)
 print(data)

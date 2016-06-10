@@ -9,12 +9,12 @@ from core.classifier.feature_vector_creation_match_prediction_by_raa import Batt
 from core.classifier.feature_vector_creation_match_prediction_by_raa import BowlingFeatureSet
 from core.classifier.feature_vector_creation_match_prediction_by_raa import compareListElements
 from core.classifier.prediction_model_SVM import predict_match_result
-from core.classifier.teamLineUp import TeamStructure
+from core.classifier.teamLineUp import StrengthAnalysis
 
 def swap_in(lst, fro, to):
     lst[fro], lst[to] = lst[to], lst[fro]
     return lst
-    
+
 
 def getMatchPredictionDetails(Vec):
     F_innings = []
@@ -29,22 +29,16 @@ def getMatchPredictionDetails(Vec):
     X.insert(0,1)
     Y.insert(0,0)
     vec = predict_match_result(X)
-    TeamStructure(Vec,F_innings,S_innings)
-    return(vec)
-    
+    # TeamStructure(Vec,F_innings,S_innings)
+    return(vec, F_innings, S_innings)
+
 
 def inningsPredictionValue(VEC):
     ings = []
-    # VEC = [['502', '514', '505', '508', '501', '515', '512', '506', '507', '510', '513'],['1215', '1203', '1201', '1202', '1213', '1207', '1208', '1212', '1209', '1206', '1211']]
-    vec1 = getMatchPredictionDetails(VEC)
+    vec1, F, S = getMatchPredictionDetails(VEC)
     VEC_ = swap_in(VEC,0,1)
-    vec2 = getMatchPredictionDetails(VEC_)
+    vec2, X, Y = getMatchPredictionDetails(VEC_)
     ings.append(vec1[0][1])
     ings.append(vec2[0][1])
-    return(round(ings[0],3),round(ings[1],3))
-
-
-    
-# f,s = inningsPredictionValue()
-# print("Batting First Winning %:",f)
-# print("Second Batting Winning %:",s)
+    SA = StrengthAnalysis(F, S)
+    return(round(ings[0],3),round(ings[1],3), SA)

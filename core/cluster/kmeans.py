@@ -40,14 +40,5 @@ if __name__ == '__main__':
     dic = {}
     for index, label in enumerate(labels):
         dic.setdefault(str(label), []).append(playerid[index])
-    # for key in dic.keys():
-    #     temp_vec = []
-    #     for id in dic[key]:
-    #         temp_vec.append(vec[playerid.index(id)])
-    #     labels = cl.fit(temp_vec)
-    #     a = {}
-    #     for index, label in enumerate(labels):
-    #         a.setdefault(str(label), []).append(dic[key][index])
-    #     dic[key] = a
     pprint.pprint((dic))
     json.dump(dic, json_dump)

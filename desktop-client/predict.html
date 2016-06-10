@@ -4,11 +4,15 @@
     <title>Crick IT</title>
    <link rel="stylesheet" type="text/css" href="css/predict.css" />
    <link rel="stylesheet" type="text/css" href="css/w3.css" />
+   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
    <script type="text/javascript" src="js/jquery.min.js"></script>
    <script type="text/javascript" src="js/mustache.min.js"></script>
 </head>
 <body>
-    <div class="container" align="center">
+    <div id="top">
+        <img id="backicon" src="assets/img/back_icon.png" />
+    </div>
+    <div id="center_div" class="container" align="center">
         <div id="spinnercontainer">
             <div id="spinner" class="loader">
             </div>
@@ -21,11 +25,14 @@
         </div>
         <div id="options">
             <label><h4>Select the team:</h4></label>
+            <p><i>(Predictions will be made for team in Green)</i></p>
             <div id="teamlistcontainer1">
             </div>
+            <h2>VS</h2>
             <div id="teamlistcontainer2">
             </div>
         </div>
+        <button class="button" id="selectplayers"> Select Players </button>
     </div>
     <script type="text/javascript" src="js/predict.js"></script>
 </body>

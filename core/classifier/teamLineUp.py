@@ -9,7 +9,7 @@ def percentage(newNumber,originalNumber):
     increase = newNumber - originalNumber
     Percentage = (increase/originalNumber)*100
     return(round(Percentage,3))
-    
+
 
 def StrengthAnalysis(firstIngsRAAFVec,secondIngsRAAFVec):
     strengthAnalysisList = []
@@ -26,6 +26,7 @@ def StrengthAnalysis(firstIngsRAAFVec,secondIngsRAAFVec):
             strengthAnalysisList.append(percentage(firstIngsRAAFVec[i], secondIngsRAAFVec[i]))
         if i == 5:
             strengthAnalysisList.append(percentage(firstIngsRAAFVec[i], secondIngsRAAFVec[i]))
+    return strengthAnalysisList
     print(strengthAnalysisList)
 
 def TeamStructure(Vec, F_innings, S_innings):

@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+"""" This script is used to interface between the backend and frontend of the application """
+
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, jsonify
 from core.classifier import profile as prf
 from core.classifier import UI_interface_inputs
@@ -46,8 +48,8 @@ def get_team_list():
 
 def get_player_list(country1, country2):
     print(country1)
-    query1 = """select player_id, player_name from player_card where country='%s'"""%(country1)
-    query2 = """select player_id, player_name from player_card where country='%s'"""%(country2)
+    query1 = """select player_id, player_name, playing_role from player_card where country='%s'"""%(country1)
+    query2 = """select player_id, player_name, playing_role from player_card where country='%s'"""%(country2)
     mycursor.execute(query1)
     results1 = mycursor.fetchall()
     mycursor.execute(query2)
@@ -105,11 +107,9 @@ def predict():
     if request.method == "POST":
         player_order = request.get_json(force=True)["playerOrder"]
         print(player_order)
-        # clf = match.Classify(n_neighbors=1)
-        # probab = clf.predict_outcome(player_order)
-        ts_win_probab, tc_win_probab = UI_interface_inputs.inningsPredictionValue(player_order)
+        ts_win_probab, tc_win_probab, StrengthAnalysis = UI_interface_inputs.inningsPredictionValue(player_order)
         print(ts_win_probab, tc_win_probab)
-        return jsonify(setting=ts_win_probab, chasing=tc_win_probab)
+        return jsonify(setting=ts_win_probab, chasing=tc_win_probab, strength=StrengthAnalysis)
 
 @app.route('/profile', methods = ['GET', 'POST'])
 def profile():
@@ -117,9 +117,7 @@ def profile():
         return render_template('profile.html')
     if request.method == "POST":
         plyr_id = request.get_json(force=True)["player_id"]
-        #print(plyr_id)
         data = sim_players(plyr_id)
-		#print(data)
         role = find_role(data)
         X={}
         X["data"]=data
@@ -190,6 +188,24 @@ def api_countries():
 	if request.method == 'GET':
 		countries = get_team_list()
 		return jsonify(teams = countries)
+
+@app.route('/api/players', methods = ['GET'])
+def api_players():
+	if request.method == 'GET':
+		country1 = request.args.get('country1')
+		country2 = request.args.get('country2')
+	res = get_player_list(country1, country2)
+	res = {'country_1': res[0], 'country_2': res[1]}
+	return jsonify(data=res)
+
+@app.route('/api/results', methods = ['POST'])
+def api_results():
+    if request.method == "POST":
+        player_order = request.get_json(force=True)["playerOrder"]
+        print(player_order)
+        ts_win_probab, tc_win_probab, StrengthAnalysis = UI_interface_inputs.inningsPredictionValue(player_order)
+        print(ts_win_probab, tc_win_probab)
+        return jsonify(setting=ts_win_probab, chasing=tc_win_probab, strength=StrengthAnalysis)
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=5000, debug=True)

@@ -25,23 +25,14 @@ neigh.fit(X,y)
 
 def predict_match_result(vec):
         return(neigh.predict_proba([vec]))
-    
-    
+
+
 def predict_match_outcome_graph(vec):
     for kernel in ['linear','poly','rbf']:
-    
+
         clf = svm.SVC(kernel=kernel, probability=True)
 
         clf.fit(X, Y[0])
         print('Kernel:'+kernel)
         print("prediction Label:",clf.predict(vec))
         print("prediction Probability:",clf.predict_proba(vec))
-        #plt.imshow(C[:6], cmap=plt.cm.gray_r, interpolation="nearest")
-        #plt.show()
-   
-
- 
-
-
-
-
